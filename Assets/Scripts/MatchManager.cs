@@ -7,6 +7,7 @@ using Mirror;
 public class MatchManager : NetworkBehaviour
 {
     [SerializeField] private float _matchRestartDelay;
+    [SerializeField] private int _requiredToWinScore;
     
     private CustomNetworkRoomManager _networkManager;
     private List<Player> _players = new List<Player>();
@@ -36,7 +37,7 @@ public class MatchManager : NetworkBehaviour
     {
         foreach (var player in _players)
         {
-            if (player.Score >= 3)
+            if (player.Score >= _requiredToWinScore)
             {
                 winnerName = player.playerName;
                 MatchRestarting?.Invoke();
