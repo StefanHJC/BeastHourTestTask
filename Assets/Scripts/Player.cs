@@ -115,7 +115,6 @@ public class Player : NetworkBehaviour
     {
         bool isMoving = CurrentSpeed.sqrMagnitude > 0.5f;
         bool isBraking = MoveInput.y < 0 && isMoving == true;
-        //bool canGoReverse = isMoving == false && isBraking == true;
 
         var inputRotatedWorld = new Vector3(MoveInput.x, 0f, MoveInput.y);
         inputRotatedWorld = transform.rotation * inputRotatedWorld;
